@@ -1,0 +1,62 @@
+ext {
+    //Android
+    androidBuildToolsVersion = "26.0.0"
+    androidMinSdkVersion = 16
+    androidTargetSdkVersion = 26
+    androidCompileSdkVersion = 26
+    androidSupport = '26.0.0'
+    androidConstraint = '1.0.2'
+
+    //Kotlin
+    kotlinVersion = '1.1.3-2'
+
+    //Libraries
+    daggerVersion = '2.10'
+    rxJavaVersion = '2.1.0'
+    rxAndroidVersion = '2.0.1'
+    rxKotlinVersion = '2.1.0'
+    retrofitVersion = '2.3.0'
+    okHttpVersion = '3.8.1'
+    locationManagerVersion = '1.0.0'
+    rxBindingVersion = '2.0.0'
+    dexterVersion = '4.1.0'
+    picassoVersion = '2.5.2'
+    spinkitVersion = '1.1.0'
+    ankoVersion = '0.10.1'
+
+    //Testing
+    junitVersion = '4.12'
+    runnerVersion = '1.0.0'
+    espressoVersion = '3.0.0'
+
+    dependencies = [
+            constraint       : "com.android.support.constraint:constraint-layout:${androidConstraint}",
+            appcompat        : "com.android.support:appcompat-v7:${androidSupport}",
+            kotlinPlugin     : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}",
+            dagger           : "com.google.dagger:dagger:${daggerVersion}",
+            daggerCompiler   : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            rxAndroid        : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            rxKotlin        : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            rxJava           : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            retrofit         : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            gsonConverter    : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+
+
+            rxBindingKotlin  : "com.jakewharton.rxbinding2:rxbinding-kotlin:${rxBindingVersion}",
+            dexter           : "com.karumi:dexter:${dexterVersion}",
+            picasso           : "com.squareup.picasso:picasso:${picassoVersion}",
+            spinkit           : "com.github.ybq:Android-SpinKit:${spinkitVersion}",
+            anko           : "org.jetbrains.anko:anko-commons:${ankoVersion}",
+
+            locationManager  : "com.github.zellius:rxlocationmanager-rxjava2:${locationManagerVersion}",
+            rxRetrofit       : "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+            okHttp           : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpInterceptor: "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}"
+    ]
+
+    testDependencies = [
+            junit   : "junit:junit:${junitVersion}",
+            runner  : "com.android.support.test:runner:${runnerVersion}",
+            espresso: "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+    ]
+}

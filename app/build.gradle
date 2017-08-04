@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply from: "../buildconfig/rename.gradle"
+
+
+android {
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion androidBuildToolsVersion
+    defaultConfig {
+        applicationId androidApplicationId
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode androidVersionCode
+        versionName androidVersionName
+        testInstrumentationRunner androidTestInstrumentationRunner
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", "\"https://api.openweathermap.org/\""
+            buildConfigField "String", "BASE_URL_IMAGES", "\"https://api.shutterstock.com/v2/\""
+            buildConfigField "String", "APP_ID", "\"$project.appid\""
+            buildConfigField "String", "API_IMAGES", "\"$project.apiImages\""
+        }
+        debug {
+            buildConfigField "String", "BASE_URL_IMAGES", "\"https://api.shutterstock.com/v2/\""
+            buildConfigField "String", "BASE_URL", "\"https://api.openweathermap.org/\""
+            buildConfigField "String", "APP_ID", "\"$project.appid\""
+            buildConfigField "String", "API_IMAGES", "\"$project.apiImages\""
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+kapt {
+    generateStubs = true
+}
+
+dependencies {
+    def dep = rootProject.ext.dependencies
+    def testDep = rootProject.ext.testDependencies
+
+    implementation dep.kotlinPlugin
+    implementation dep.appcompat
+    implementation dep.dagger
+    kapt dep.daggerCompiler
+    implementation dep.constraint
+    implementation dep.rxJava
+    implementation dep.rxAndroid
+    implementation dep.rxKotlin
+    implementation dep.gsonConverter
+    implementation dep.retrofit
+    implementation dep.rxRetrofit
+    implementation dep.okHttpInterceptor
+    implementation dep.okHttp
+    implementation dep.locationManager
+    implementation dep.dexter
+    implementation dep.rxBindingKotlin
+    implementation dep.picasso
+    implementation dep.anko
+    implementation dep.spinkit
+
+    //Testing
+    testImplementation testDep.junit
+    androidTestImplementation testDep.runner
+    androidTestImplementation testDep.espresso
+
+}

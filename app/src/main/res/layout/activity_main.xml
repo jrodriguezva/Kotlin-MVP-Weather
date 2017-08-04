@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             tools:context="com.jagrod.weather.presentation.module.MainActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/rlCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorBackgroundTransparent"
+        tools:layout_editor_absoluteY="16dp"
+        >
+
+        <AutoCompleteTextView
+            android:visibility="visible"
+            android:id="@+id/actvCity"
+            android:layout_width="match_parent"
+            android:hint="@string/city_name"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/ivLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rlCity"
+        app:layout_constraintEnd_toEndOf="@+id/rlCity"
+        app:layout_constraintTop_toTopOf="@+id/rlCity"
+        app:srcCompat="@android:drawable/ic_menu_mylocation"/>
+
+    <ImageView
+        android:id="@+id/ivSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/rlCity"
+        app:layout_constraintEnd_toEndOf="@+id/rlCity"
+        app:layout_constraintTop_toTopOf="@+id/rlCity"
+        app:srcCompat="@android:drawable/ic_menu_search"/>
+
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/ic_broken_image_black_24dp"
+        android:id="@+id/imageView2"
+        android:scaleType="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rlCity"/>
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/spinKit"
+        android:visibility="gone"
+        android:padding="80dp"
+        style="@style/SpinKitView.Large.DoubleBounce"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundSpinner"
+        android:layout_gravity="center"
+        app:SpinKit_Color="@color/colorAccent"/>
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/rlCity"
+        android:background="@color/colorBackgroundTransparent"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:textSize="24sp"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        tools:text="ASDFASDFASDF"
+        />
+
+    <TextView
+        android:id="@+id/tvTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorBackgroundTransparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="72sp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/margin_medium"
+        tools:text="19.0ºC"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,29 @@
+allprojects {
+    ext {
+        versionMajor = 1
+        versionMinor = 0
+        versionPatch = 0
+        versionClassifier = null
+        isSnapshot = false
+        androidVersionCode = generateVersionCode()
+        androidVersionName = generateVersionName()
+    }
+}
+
+private Integer generateVersionCode() {
+    return ext.versionMajor * 1000000 + ext.versionMinor * 1000 + ext.versionPatch
+}
+
+private String generateVersionName() {
+    String versionName = "${ext.versionMajor}.${ext.versionMinor}.${ext.versionPatch}"
+    if (ext.versionClassifier == null) {
+        if (ext.isSnapshot) {
+            ext.versionClassifier = "SNAPSHOT"
+        }
+    }
+
+    if (ext.versionClassifier != null) {
+        versionName += "-" + ext.versionClassifier
+    }
+    return versionName
+}
