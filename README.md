@@ -10,6 +10,7 @@ License
 --------
    
     Copyright (c) 2017 Juan Agustín Rodríguez Valle Open Source Project.
+    
     This file is part of Kotlin-MVP-Weather.
     
     Kotlin-MVP-Weather is free software: you can redistribute it and/or modify
